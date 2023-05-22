@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const dbConnect = () => {
+const dbConnect = (uri) => {
     try {
-        mongoose.set("strictQuery", false);
-        const conn = mongoose.connect(process.env.MONGO_URL);
-        console.log("Dtabase connected")
+        mongoose.set("strictQuery", true);
+        const conn = mongoose.connect(uri);
+        console.log("Database connected")
     }
     catch (err) {
         throw new Error(err);
